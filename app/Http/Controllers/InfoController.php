@@ -68,9 +68,10 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function edit(Info $info)
+    public function edit($id)
     {
-        //
+        $info = Info::findOrfail($id);
+        return view('infos.edit')->with('info', $info);
     }
 
     /**
@@ -80,9 +81,21 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Info $info)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'author' => 'required',
+            'title' => 'required',
+            'body' => 'required',
+            'date' => 'required',
+            ]);
+        $info = Info::findOrfail($id);
+        $info->author = request('author');
+        $info->title = request('title');
+        $info->body = request('body');
+        $info->date = request('date');
+        $info->save();
+        return redirect('/');
     }
 
     /**

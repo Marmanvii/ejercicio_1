@@ -25,9 +25,11 @@
                                     <h5>{{$info->date}}</h5>
                                     {{$info->body}}
                                     <br><br>
-                                    <div class="btn-group">
-                                        <a href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</a>
-                                        <a href="/infos/destroy" type="button" style="margin:5px;" class="text-center btn btn-primary">Eliminar</a>
+                                    <form action="/infos/{{$info->id}}/edit" method="GET">
+                                        {{csrf_field()}}
+                                        <button class="btn btn-secondary" type="submit">Editar</button>
+                                    </form>         
+                                    <a href="/infos/destroy" type="button" style="margin:5px;" class="text-center btn btn-primary">Eliminar</a>
                                     </div>
                                 </div>
                             </div>
