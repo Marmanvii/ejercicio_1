@@ -46,6 +46,7 @@ class NewsController extends Controller
         $new->author = request('author');
         $new->title = request('title');
         $new->body = request('body');
+        $new->date = request('date');
         $new->save();
         return redirect('/');
     }
