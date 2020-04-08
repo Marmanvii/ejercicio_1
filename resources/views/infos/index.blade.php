@@ -30,6 +30,7 @@
                                     {{csrf_field()}}
                                     <button class="text-center btn btn-primary" style="margin:5px;" type="submit">Editar</button>
                                 </form>  
+                                <form method="POST" action="/infos/{{$info->id}}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <div class="form-group">
@@ -38,7 +39,7 @@
                                 </form>
                             </div>
                         </div>
-                            </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
