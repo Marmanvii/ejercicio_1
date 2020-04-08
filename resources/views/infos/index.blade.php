@@ -19,30 +19,29 @@
                 <div class="card-deck d-flex justify-content-between">
                     @foreach ($infos as $info)
                     <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
-                                <h1 class="card-header">{{$info->title}}</h1>
-                                <div class="card-body">
-                                    <h3>{{$info->author}}</h3>
-                                    <h5>{{$info->date}}</h5>
-                                    {{$info->body}}
-                                    <br><br>
-                                    <div class="btn-group">
-                                        <button href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</button>
-                                        <form method="POST" action="/infos/{{$info->id}}">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                    
-                                            <div class="form-group">
-                                                <button type="submit" style="margin:5px;" class="text-center btn btn-primary">Eliminar</button>
-                                            </div>
-                                        </form>
+                        <h1 class="card-header">{{$info->title}}</h1>
+                        <div class="card-body">
+                            <h3>{{$info->author}}</h3>
+                            <h5>{{$info->date}}</h5>
+                            {{$info->body}}
+                            <br><br>
+                            <div class="btn-group">
+                                <button href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</button>
+                                <form method="POST" action="/infos/{{$info->id}}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <div class="form-group">
+                                        <button type="submit" style="margin:5px;" class="text-center btn btn-primary">Eliminar</button>
                                     </div>
-                                </div>
+                                </form>
+                            </div>
+                        </div>
                             </div>
                     @endforeach
                 </div>
             </div>
         </div>
-        <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
+        <a href="/infos/create" type="button" style="margin-left: 50%; margin-right:50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
     </body>
 
     {{-- JQuery --}}
