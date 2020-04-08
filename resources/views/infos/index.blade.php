@@ -26,16 +26,23 @@
                                     {{$info->body}}
                                     <br><br>
                                     <div class="btn-group">
-                                        <a href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</a>
-                                        <a href="/infos/destroy" type="button" style="margin:5px;" class="text-center btn btn-primary">Eliminar</a>
+                                        <button href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</button>
+                                        <form method="POST" action="/infos/{{$info->id}}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                    
+                                            <div class="form-group">
+                                                <button type="submit" style="margin:5px;" class="text-center btn btn-primary">Eliminar</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                     @endforeach
                 </div>
-            <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
             </div>
         </div>
+        <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
     </body>
 
     {{-- JQuery --}}

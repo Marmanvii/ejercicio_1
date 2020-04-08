@@ -91,8 +91,11 @@ class InfoController extends Controller
      * @param  \App\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Info $info)
+    public function destroy($id)
     {
-        //
+        $info = Info::findOrfail($id);
+        $info -> delete();
+
+        return redirect('/');
     }
 }
