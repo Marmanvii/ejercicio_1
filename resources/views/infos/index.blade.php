@@ -13,28 +13,28 @@
 
     </head>
     <body>
-        <div id="app">       
-            <main class="py-4">
-                <div class="container">
-                <h2 class="text-center">Información</h2>
-                    <div class="card-columns" style="width:100%;">           
-                        @foreach ($infos as $info)
-                        <div class="card text-center">
-                            <h1 class="card-header">{{$info->title}}</h1>
-                            <div class="card-body">
-                                <h3>{{$info->author}}</h3>
-                                <h5>{{$info->date}}</h5>
-                                {{$info->body}}
-                                <br><br>
-                                <a href="/infos/edit" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Editar Noticia</a>
-                                <a href="/infos/destroy" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Eliminar Noticia</a>
+        <div class="container mt-3">
+            <h2 class="text-center">Información</h2>
+            <div class="row">
+                <div class="card-deck d-flex justify-content-between">
+                    @foreach ($infos as $info)
+                    <div class="card mb-4" style="min-width: 18rem; max-width: 18rem;">
+                                <h1 class="card-header">{{$info->title}}</h1>
+                                <div class="card-body">
+                                    <h3>{{$info->author}}</h3>
+                                    <h5>{{$info->date}}</h5>
+                                    {{$info->body}}
+                                    <br><br>
+                                    <div class="btn-group">
+                                        <a href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</a>
+                                        <a href="/infos/destroy" type="button" style="margin:5px;" class="text-center btn btn-primary">Eliminar</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div> 
-                        @endforeach
-                    </div>
+                    @endforeach
                 </div>
             <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
-            </main>
+            </div>
         </div>
     </body>
 
