@@ -26,6 +26,8 @@
                                 <h5>{{$info->date}}</h5>
                                 {{$info->body}}
                                 <br><br>
+                                <a href="/infos/edit" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Editar Noticia</a>
+                                <a href="/infos/destroy" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Eliminar Noticia</a>
                             </div>
                         </div> 
                         @endforeach
