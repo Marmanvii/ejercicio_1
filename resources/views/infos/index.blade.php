@@ -1,6 +1,3 @@
-@php
-    $date= now();
-@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -16,27 +13,17 @@
 
     </head>
     <body>
+        <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
+        @foreach ($infos as $info)
         <div class="card d-inline-flex align-items-center justify-content-center" style="margin: 0 auto;">
             <div class="card-body">
-                <form method="POST" action="/news">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="author">Autor</label>
-                        <input type="text" class="form-control" id="author" placeholder="Pedro Perez">
-                        </div>
-                    <div class="form-group">
-                        <label for="title">Título</label>
-                        <input type="text" class="form-control" id="title" placeholder="Título de la Noticia">
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Cuerpo</label>
-                        <textarea class="form-control" id="body"></textarea>
-                    </div>
-                    <input id="date" name="date" type="hidden" value="{{$date}}">
-                    <button type="submit" class="btn btn-primary">Agregar</button>
-                </form>
+            <h1>{{$info->title}}</h1>
+            <h3>{{$info->author}}</h3>
+            {{$info->body}}
+            <br><br>
             </div>
         </div> 
+        @endforeach
     </body>
 
     {{-- JQuery --}}

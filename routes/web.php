@@ -4,6 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'NewsController@index');
-Route::resource('news', 'NewsController');
+Route::get('/', 'InfoController@index');
+Route::resource('infos', 'InfoController');
 
