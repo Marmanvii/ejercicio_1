@@ -26,8 +26,10 @@
                             {{$info->body}}
                             <br><br>
                             <div class="btn-group">
-                                <button href="/infos/edit" type="button" style="margin:5px;" class="text-center btn btn-primary">Editar</button>
-                                <form method="POST" action="/infos/{{$info->id}}">
+                                <form action="/infos/{{$info->id}}/edit" method="GET">
+                                    {{csrf_field()}}
+                                    <button class="btn btn-secondary" type="submit">Editar</button>
+                                </form>  
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <div class="form-group">
