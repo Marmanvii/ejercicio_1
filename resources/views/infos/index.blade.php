@@ -28,7 +28,7 @@
                                     <div class="btn-group">
                                     <form action="/infos/{{$info->id}}/edit" method="GET">
                                         {{csrf_field()}}
-                                        <button class="btn btn-secondary" type="submit">Editar</button>
+                                        <button class="text-center btn btn-primary" style="margin:5px;" type="submit">Editar</button>
                                     </form>         
                                         <form method="POST" action="/infos/{{$info->id}}">
                                             {{ csrf_field() }}
