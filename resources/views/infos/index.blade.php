@@ -14,11 +14,14 @@
     </head>
     <body>
         <a href="/infos/create" type="button" style="margin-left: 50%; margin-top:5%;" class="text-center btn btn-primary">Agregar Noticia</a>
+        
         @foreach ($infos as $info)
-        <div class="card d-inline-flex align-items-center justify-content-center" style="margin: 0 auto;">
+        <br>
+        <div class="card d-inline-flex align-items-center justify-content-center" style="margin-left: 50%; margin-right:50%; margin-top:5%;">
             <div class="card-body">
             <h1>{{$info->title}}</h1>
             <h3>{{$info->author}}</h3>
+            <h5>{{$info->date}}</h5>
             {{$info->body}}
             <br><br>
             </div>
