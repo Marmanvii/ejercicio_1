@@ -11,6 +11,9 @@ class InfosSeeder extends Seeder
      */
     public function run()
     {
+
+        /* se insertan los elementos en la tabla infos, se indica el insert con nombre de la columna y el valor a insertar. Tienen que ser coincidente con el tipo de dato que está definido en la DB
+         */
         DB::table('infos')->insert([
             'author' => 'Autor 1',
             'title' => 'Titulo 1',

@@ -6,28 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateInfosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('infos', function (Blueprint $table) {
-            $table->id();
-            $table->string('author');
+        Schema::create('infos', function (Blueprint $table) { // se define el nombre que tendrá la tabla en la DB
+            $table->id(); // PK autoincremental que se genera por cada inserción
+            $table->string('author'); // campo de la tabla de tipo string con el nombre author
             $table->string('title');
             $table->string('body');
-            $table->date('date');
-            $table->timestamps();
+            $table->date('date'); // campo de la tabla del tipo date con nombre date
+            $table->timestamps(); // campos para llevar registro de modificaciones e inserciones en la tabla
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('infos');
