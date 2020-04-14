@@ -9,8 +9,8 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() // método que se ejecuta al llamar a los seeders
     {
-        $this->call(InfosSeeder::class);
+        $this->call(InfosSeeder::class); // llamada a la clase InfosSeeder para ejecutar los seeders
     }
 }
