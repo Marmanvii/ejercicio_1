@@ -1,7 +1,8 @@
-{{-- Si queremos hacer uso de logica PHP, podemos usar @php, que es mas facil
-     de memorizar que la llamada tradicional --}}
+
 @php
-    $date= now();
+    /* Si queremos hacer uso de logica PHP, podemos usar @php, que es mas facil
+       de memorizar que la llamada tradicional */
+     $date= now();
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
