@@ -1,6 +1,6 @@
-{{-- Si queremos hacer uso de logica PHP, podemos usar @php, que es mas facil
-     de memorizar que la llamada tradicional --}}
 @php
+    /* Si queremos hacer uso de logica PHP, podemos usar @php, que es mas facil
+       de memorizar que la llamada tradicional */
     $date= now();
 @endphp
 <!DOCTYPE html>

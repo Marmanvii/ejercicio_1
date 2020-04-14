@@ -13,6 +13,7 @@
 
     </head>
     <body>
+        <x-navbar/>
         <div class="container mt-3">
             <h2 class="text-center">Información</h2>
             <div class="row">
