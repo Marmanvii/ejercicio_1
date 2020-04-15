@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Info;
+use App\Category;
 use Illuminate\Http\Request;
 
 class InfoController extends Controller
@@ -17,7 +18,8 @@ class InfoController extends Controller
 
     public function create()
     {
-        return view('infos.create'); // se retorna la vista create ubicada en la carpeta infos.
+        $categories = Category::all();
+        return view('infos.create', compact('categories')); // se retorna la vista create ubicada en la carpeta infos.
     }
 
     public function store(Request $request) // método para almacenar en la DB el objeto que se quiere almacenar
@@ -27,12 +29,14 @@ class InfoController extends Controller
             'title' => 'required',
             'body' => 'required',
             'date' => 'required',
+            'category' => 'required',
             ]);
         $info = new Info; // se crea una nueva instancia del modelo Info para almacenar los datos antes de insertarlos a la DB
         $info->author = request('author'); // se almacena en el atributo author el campo enviado desde el form con nombre e id author
         $info->title = request('title');
         $info->body = request('body');
         $info->date = request('date');
+        $info->category_id = request('category');
         $info->save(); // se almacena en la DB el objeto creado mediante el modelo
         return redirect('/'); // se redirecciona al home
     }
@@ -45,7 +49,8 @@ class InfoController extends Controller
     public function edit($id) // redirige a la vista con los datos de la información que se quiere modificar
     { // se captura el id que fue enviado en el formulario para editar la información
         $info = Info::findOrfail($id); // obtenemos la información correspondiente a ese id para precargarlo en la vista
-        return view('infos.edit')->with('info', $info); // se redirecciona a la vista y se envía la info que se quiere editar
+        $categories = Category::all();
+        return view('infos.edit', compact('info', 'categories')); // se redirecciona a la vista y se envía la info que se quiere editar
     }
 
     public function update(Request $request, $id) // método para almacenar en la BD el objeto que se quiere actualizar
@@ -55,12 +60,14 @@ class InfoController extends Controller
             'title' => 'required',
             'body' => 'required',
             'date' => 'required',
+            'category' => 'required',
             ]);
         $info = Info::findOrfail($id); // se busca el objeto que se quiere actualizar para cargar los datos
         $info->author = request('author');
         $info->title = request('title');
         $info->body = request('body');
         $info->date = request('date');
+        $info->category_id = request('category');
         $info->save(); // se almacena insertando la data en la Info con la id correspondiente.
         return redirect('/');
     }
