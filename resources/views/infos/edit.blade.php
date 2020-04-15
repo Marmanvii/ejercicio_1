@@ -19,7 +19,7 @@
                         <label for="title">Título</label>
                         <input type="text" class="form-control" name="title" id="title" value="{{ $info->title }}">
                     </div>
-                    <div class="form-row">
+                    <div class="form-group">
                         <label for="category">Categorías</label>
                         <select id="category" class="form-control" name="category" required>
                             <option value="" disabled selected>Seleccione una categoría</option>
