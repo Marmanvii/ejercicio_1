@@ -15,6 +15,8 @@ class CreateInfosTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->date('date'); // campo de la tabla del tipo date con nombre date
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps(); // campos para llevar registro de modificaciones e inserciones en la tabla
         });
     }
